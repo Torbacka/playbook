@@ -2,6 +2,4 @@
 - include: hostname.yml
 - include: timezone.yml
 - include: epel_repo.yml
-  when: ansible_os_family == "RedHat"
-- include: haveged.yml
 - include: basic_tools.yml

@@ -8,6 +8,8 @@
     - python-apt
     - debconf-utils
     - maven
+    - htop
+    - nano
 
 # Blacklist the nouveau driver module
 - name: Blacklist the nouveau driver module

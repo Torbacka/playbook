@@ -3,7 +3,7 @@
     name: "{{item}}"
     state: installed
   with_items:
-    - tmux
     - bash-completion
     - htop
     - vim
+    - nano
