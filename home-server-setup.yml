@@ -1,0 +1,11 @@
+---
+- hosts: all
+  become: true
+  roles:
+    - role: common-server
+
+- hosts: lenovo-computer
+  become: true
+  roles:
+    - role: nginx
+    - role: own-cloud

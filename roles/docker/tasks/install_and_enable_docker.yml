@@ -1,0 +1,25 @@
+---
+- name: Install Docker from Yum
+  yum:
+    name: docker-engine
+    state: installed
+  when: ansible_os_family == "RedHat"
+
+- name: Install Docker with Apt
+  apt:
+    name: docker-ce
+    state: installed
+  when: ansible_os_family == "Debian"
+
+- name: Start and enable Docker service
+  systemd:
+    name: docker
+    state: started
+    enabled: true
+
+- name: Add the running user to the docker group
+  user:
+    name: "{{ docker_user }}"
+    groups: ["docker"]
+    append: yes
+    state: present

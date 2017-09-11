@@ -1,0 +1,4 @@
+---
+- include: manage-packages.yml
+- include: install-oracle-java.yml
+- include: docker-compose.yml

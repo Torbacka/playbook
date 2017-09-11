@@ -1,0 +1,7 @@
+venv
+*.retry
+
+/.idea/
+*.iml
+# vim tmp files
+*.swp

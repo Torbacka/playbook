@@ -1,0 +1,5 @@
+---
+- name: Update existing initramfs
+  become: true
+  shell: update-initramfs -u
+  listen: "update initramfs"
