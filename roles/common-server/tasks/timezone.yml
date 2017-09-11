@@ -1,0 +1,5 @@
+---
+# tasks file for timezone
+- name: Set Timezone
+  timezone:
+    name: "{{local_timezone}}"

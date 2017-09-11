@@ -1,0 +1,21 @@
+- name: Install tools on CentOS
+  yum:
+    name: "{{item}}"
+    state: installed
+  with_items:
+    - tmux
+    - bash-completion
+    - htop
+    - vim
+  when: ansible_os_family == "RedHat"
+
+- name: Install tools on Debian
+  apt:
+    name: "{{item}}"
+    state: installed
+  with_items:
+    - tmux
+    - bash-completion
+    - htop
+    - vim
+  when: ansible_os_family == "Debian"

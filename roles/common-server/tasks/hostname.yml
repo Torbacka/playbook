@@ -1,0 +1,5 @@
+---
+- name: Set hostname
+  hostname:
+    # inventory_hostname *should* be set to FQDN
+    name: "{{inventory_hostname}}"
