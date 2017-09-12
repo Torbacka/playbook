@@ -10,6 +10,7 @@
     - maven
     - htop
     - nano
+    - kolourpaint4
 
 # Blacklist the nouveau driver module
 - name: Blacklist the nouveau driver module
