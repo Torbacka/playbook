@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  connection: local
   become: true
   tags: docker
   roles:
@@ -11,4 +12,3 @@
   become: false
   roles:
     - common-dev-setup
-    

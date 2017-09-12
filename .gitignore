@@ -1,4 +1,4 @@
-.venv
+.env/
 *.retry
 
 /.idea/
@@ -6,4 +6,6 @@
 # vim tmp files
 *.swp
 
+# Dont commit requirements
 debops*/
+gantsign*/
