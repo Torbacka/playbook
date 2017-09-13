@@ -5,12 +5,14 @@
     name: "{{item}}"
     state: present
   with_items:
-    - python-apt
+    - python3-apt
     - debconf-utils
     - maven
     - htop
     - nano
     - kolourpaint4
+    - npm
+    - nodejs
 
 # Blacklist the nouveau driver module
 #- name: Blacklist the nouveau driver module
