@@ -1,0 +1,5 @@
+---
+intellij_jdks:
+  - name: '1.8'
+    home: '/usr/lib/jvm/java-8-oracle/bin/java'
+intellij_edition: ultimate

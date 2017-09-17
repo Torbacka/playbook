@@ -1,3 +1,11 @@
 # Install a role from the Ansible Galaxy
-- src: debops.owncloud
+- src: debops.core
+- src: debops.php
+- src: debops.apt_preferences
+- src: debops.ferm
+- src: debops.mariadb
+- src: debops.unattended_upgrades
+- src: debops.logrotate
+- src: debops.nginx
+- src: debops.php
 - src: gantsign.intellij

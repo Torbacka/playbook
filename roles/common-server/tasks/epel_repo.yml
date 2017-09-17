@@ -1,5 +1,0 @@
----
-- name: Install Yum-repository for epel
-  yum:
-    name: epel-release
-    state: installed

@@ -1,5 +1,5 @@
-- name: Install tools on CentOS
-  yum:
+- name: Install tools on Ubuntu
+  apt:
     name: "{{item}}"
     state: installed
   with_items:

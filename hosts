@@ -1,5 +1,5 @@
-[raspberry-pi]
-pi ansible_host=192.168.0.69 ansible_user=taco
+#[raspberry-pi]
+#pi ansible_host=192.168.0.69 ansible_user=taco
 
-[lenovo-computer]
-lenovo ansible_host=192.168.0.59 ansible_user=taco
+[lenovo]
+192.168.1.69 ansible_user=daniel

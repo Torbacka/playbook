@@ -1,5 +1,3 @@
 ---
-- include: hostname.yml
 - include: timezone.yml
-- include: epel_repo.yml
 - include: basic_tools.yml

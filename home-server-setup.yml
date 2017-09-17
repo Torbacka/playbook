@@ -1,12 +1,36 @@
 ---
-- hosts: all
-  become: true
-  roles:
-    - role: common-server
 
-- hosts: lenovo-computer
-  become: true
+- name: Install and manage Nginx, mariadb and php
+  hosts: lenovo
+  become: True
+
+  environment: '{{ inventory__environment | d({})
+                   | combine(inventory__group_environment | d({}))
+                   | combine(inventory__host_environment  | d({})) }}'
+
   roles:
-    - role: nginx
-    - role: own-cloud
-    - role: letsencrypt
+    - role: debops.php/env
+      tags: [ 'role::php', 'role::php:env','role::apt_preferences', 'role::logrotate' ]
+
+    - role: debops.apt_preferences
+      tags: [ 'role::apt_preferences', 'role::nginx', 'role::php' ]
+      apt_preferences__dependent_list:
+        - '{{ nginx__apt_preferences__dependent_list }}'
+        - '{{ php__apt_preferences__dependent_list }}'
+
+    - role: debops.ferm
+      tags: [ 'role::ferm', 'role::nginx' ]
+      ferm__dependent_rules:
+        - '{{ nginx__ferm__dependent_rules }}'
+
+    - role: debops.mariadb
+      tags: [ 'role::mariadb' ]
+
+    - role: debops.unattended_upgrades
+      tags: [ 'role::unattended_upgrades' ]
+
+    - role: debops.php
+      tags: [ 'role::php' ]
+
+    - role: debops.nginx
+      tags: [ 'role::nginx' ]
