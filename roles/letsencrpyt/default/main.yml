@@ -1,7 +1,0 @@
-letsencrypt-domains:
-  - 'apk.bet'
-  - 'www.apk.bet'
-  - 'torbacka.nu'
-
-letsencrypt-packages:
-  - 'python-certbot-nginx'
