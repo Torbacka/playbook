@@ -7,6 +7,7 @@
       # The local user name is available in this variable
       docker_user: "{{ansible_user_id}}"
     - role: gantsign.intellij
+      intellij_edition: ultimate 
 - hosts: localhost
   become: false
   roles:

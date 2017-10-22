@@ -1,0 +1,7 @@
+---
+
+- name: Install and manage Nginx, mariadb and php
+  hosts: localhost
+
+  roles:
+    - role: test

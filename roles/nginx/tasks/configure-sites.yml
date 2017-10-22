@@ -1,0 +1,28 @@
+---
+- name: Setup sites-available nginx
+  template:
+    src: "{{ item }}"
+    dest: "/etc/nginx/sites-available/{{ item | basename | regex_replace('.j2','') }}"
+    owner: root
+    mode: 644
+  with_fileglob:
+    - ../templates/sites/*.j2
+
+- name: Delete default config
+  file:
+    path: "/etc/nginx/sites-{{ item }}/default"
+    state: "absent"
+  with_items:
+    - "enabled"
+    - "available"
+
+- name: Setup sites-enabled nginx__servers
+  file:
+    src: "/etc/nginx/sites-available/{{ item | basename | regex_replace('.j2','') }}"
+    dest: "/etc/nginx/sites-enabled/{{ item | basename | regex_replace('.j2','') }}"
+    owner: root
+    group: root
+    state: link
+  notify: [ 'Test nginx and reload' ]
+  with_fileglob:
+    - ../templates/sites/*.j2

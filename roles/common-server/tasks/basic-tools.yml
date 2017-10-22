@@ -1,6 +1,6 @@
 - name: Install tools on Ubuntu
   apt:
-    name: "{{item}}"
+    name: "{{ item }}"
     state: installed
   with_items:
     - bash-completion

@@ -1,0 +1,6 @@
+---
+- name: Do nothing on lid close
+  lineinfile:
+    path: /etc/systemd/logind.conf
+    regexp: HandleLidSwitch
+    line: HandleLidSwitch=ignore

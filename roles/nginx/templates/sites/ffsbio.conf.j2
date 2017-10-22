@@ -1,0 +1,17 @@
+server {
+    server_name www.ffsbio.nu;
+    return 302 $scheme://ffsbio.nu$request_uri;
+}
+
+server {
+    listen 80;
+    listen [::]:80;
+
+    root: /var/www/html/apk;
+
+    server_name ffsbio.nu;
+
+    location / {
+    	try_files $uri $uri/ =404;
+    }
+}
