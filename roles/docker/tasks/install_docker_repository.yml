@@ -1,19 +1,4 @@
 ---
-- name: GPG Key for Docker Yum repository
-  rpm_key:
-    key: "https://yum.dockerproject.org/gpg"
-    state: present
-  when: ansible_os_family == "RedHat"
-
-- name: Install Docker Yum Repository
-  yum_repository:
-    name: docker-official-repo
-    description: Official Yum Repo for the Docker project
-    baseurl: "https://yum.dockerproject.org/repo/main/centos/7"
-    gpgcheck: true
-    enabled: true
-  when: ansible_os_family == "RedHat"
-
 # See: https://docs.docker.com/engine/installation/linux/ubuntu/
 - name: Install Prerequisites for Ubuntu
   apt:
@@ -23,19 +8,14 @@
     - ca-certificates
     - curl
     - software-properties-common
-  when: ansible_os_family == "Debian"
 
 - apt_key:
     url: "https://download.docker.com/linux/ubuntu/gpg"
     id: "9DC858229FC7DD38854AE2D88D81803C0EBFCD88"
     state: present
-  # This variable is set to "Debian" also on Ubuntu
-  when: ansible_os_family == "Debian"
 
 - name: Install Docker Apt Repository
   apt_repository:
-    # xenial == Ubuntu 16.04 (This should be updated when a repo for "Zesty" is available)
     repo: "deb https://download.docker.com/linux/ubuntu xenial stable"
     state: present
     update_cache: true
-  when: ansible_os_family == "Debian"

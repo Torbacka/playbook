@@ -1,15 +1,20 @@
 server {
+    listen 80;
+    listen [::]:80;
     server_name www.ffsbio.nu;
-    return 302 $scheme://ffsbio.nu$request_uri;
+    return 302 https://ffsbio.nu$request_uri;
 }
 
 server {
-    listen 80;
-    listen [::]:80;
+    listen 443 ssl;
+    listen [::]:443 ssl;
 
-    root: /var/www/html/apk;
+    server_name apk.bet;
 
-    server_name ffsbio.nu;
+    ssl_certificate /etc/letsencrypt/live/ffsbio.nu/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/ffsbio.nu/privkey.pem;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf;
 
     location / {
     	try_files $uri $uri/ =404;

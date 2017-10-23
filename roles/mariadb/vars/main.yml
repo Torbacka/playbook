@@ -1,0 +1,12 @@
+---
+mariadb_dependecies:
+    - build-essential
+    - python-dev
+    - libmysqlclient-dev
+    - python-mysqldb
+    - php7.0
+    - php7.0-mysql
+    - php7.0-cli
+    - php7.0-cgi
+    - php7.0-gd
+    - php7.0-mcrypt

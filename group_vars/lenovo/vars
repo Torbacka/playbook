@@ -1,0 +1,4 @@
+---
+docker_compose_path: /home/daniel/docker-compose/
+db_username: ['root']
+db_password: "{{ vault_db_password }}"

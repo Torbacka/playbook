@@ -10,3 +10,9 @@
   apt:
     name: 'python-certbot-nginx'
     state: installed
+
+- name: Setup crontab
+  lineinfile:
+    path: /var/spool/cron/crontabs/root
+    regexp: /usr/bin/certbot
+    line: 15 3 * * * /usr/bin/certbot renew --quiet

@@ -13,6 +13,7 @@
     - kolourpaint4
     - npm
     - nodejs
+    - python-pip
 
 # Blacklist the nouveau driver module
 #- name: Blacklist the nouveau driver module

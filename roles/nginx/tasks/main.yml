@@ -5,4 +5,12 @@
     name: nginx
     state: present
 
+- name:
+  template:
+    src: 'nginx/nginx.conf'
+    dest: '/etc/nginx/nginx.conf'
+    owner: root
+    mode: 644
+  notify: [ 'Test nginx and reload' ]
+  
 - include: 'configure-sites.yml'

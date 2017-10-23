@@ -2,3 +2,8 @@
 - include: install_docker_repository.yml
 
 - include: install_and_enable_docker.yml
+
+- include: install_docker_compose.yml
+
+- include: registry.yml
+  when: inventory_hostname != "localhost"

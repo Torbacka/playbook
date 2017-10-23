@@ -6,7 +6,7 @@
     owner: root
     mode: 644
   with_fileglob:
-    - ../templates/sites/*.j2
+    - ../templates/nginx/sites-available/*.j2
 
 - name: Delete default config
   file:
@@ -25,4 +25,4 @@
     state: link
   notify: [ 'Test nginx and reload' ]
   with_fileglob:
-    - ../templates/sites/*.j2
+    - ../templates/nginx/sites-available/*.j2
