@@ -3,3 +3,6 @@
 
 [lenovo]
 192.168.1.194 ansible_user=daniel
+
+[local]
+localhost ansible_user=daniel

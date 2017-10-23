@@ -8,3 +8,5 @@
     - role: common-server
     - role: nginx
     - role: letsencrypt
+    - role: mariadb
+    - role: docker

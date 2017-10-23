@@ -1,0 +1,28 @@
+---
+- name: Create registry directory
+  file:
+    path: /srv/registry/data
+    state: directory
+    owner: daniel
+    group: daniel
+    mode: 0755
+
+- name: Create docker-compose directory
+  file:
+    path: "{{ docker_compose_path }}/registry"
+    state: directory
+    owner: daniel
+    group: daniel
+    mode: 0755
+
+- name: Create docker-compose file
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ docker_compose_path }}/registry/docker-compose.yml"
+    owner: daniel
+    group: daniel
+    mode: 0755
+
+
+- name: Start docker registry
+  command: docker-compose -f /home/daniel/docker-compose/registry/docker-compose.yml up -d

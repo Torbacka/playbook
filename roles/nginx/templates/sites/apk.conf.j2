@@ -1,27 +1,22 @@
 server {
+    listen 80;
+    listen [::]:80;
     server_name www.apk.bet;
-    return 302 $scheme://apk.bet$request_uri;
+    return 302 https://apk.bet$request_uri;
 }
 
 server {
-  listen 80;
-  listen [::]:80;
+    listen 443 ssl;
+    listen [::]:443 ssl;
 
-  root: /var/www/html/apk;
+    server_name apk.bet;
 
-  server_name apk.bet;
+    ssl_certificate /etc/letsencrypt/live/apk.bet/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/apk.bet/privkey.pem;
+    ssl_dhparam /etc/ssl/certs/dhparam.pem;
+    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
 
-  location / {
-		try_files $uri $uri/ =404;
-	}
-
-	location ~ \.php$ {
-	   include snippets/fastcgi-php.conf;
-
-     # With php-fpm (or other unix sockets):
-		 fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
-     # With php-cgi (or other tcp sockets):
-		 fastcgi_pass 127.0.0.1:9000;
-	}
-
+    location / {
+        try_files $uri $uri/ =404;
+    }
 }
