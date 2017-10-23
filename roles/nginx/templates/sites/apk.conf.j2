@@ -14,7 +14,7 @@ server {
     ssl_certificate /etc/letsencrypt/live/apk.bet/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/apk.bet/privkey.pem;
     ssl_dhparam /etc/ssl/certs/dhparam.pem;
-    include /etc/letsencrypt/options-ssl-nginx.conf; # managed by Certbot
+    include /etc/letsencrypt/options-ssl-nginx.conf;
 
     location / {
         try_files $uri $uri/ =404;
