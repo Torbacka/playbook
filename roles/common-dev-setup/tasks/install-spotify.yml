@@ -1,0 +1,18 @@
+---
+- name: "Setup spotify repository signing key"
+  become: True
+  apt_key:
+    keyserver: hkp://keyserver.ubuntu.com:80
+    id: 0DF731E45CE24F27EEEB1450EFDC8610341D9410
+  register: spotify_signing_key
+
+- name: "Add spotify repository"
+  become: True
+  shell: "echo deb http://repository.spotify.com stable non-free | sudo tee /etc/apt/sources.list.d/spotify.list"
+  when: spotify_signing_key.changed
+  
+- name: "Install spotify"
+  become: True
+  apt:
+    name: spotify-client
+    update_cache: yes
