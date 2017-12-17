@@ -1,4 +1,3 @@
-
 ## Description
 * Installs Oracle Java 8
 * Installs docker compose

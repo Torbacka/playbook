@@ -1,6 +1,5 @@
 ---
 - hosts: localhost
-  become: true
   tags: docker
   roles:
     - role: common-dev-setup

@@ -1,6 +1,6 @@
 ---
 - name: install packages
-  become: true
+  become: True
   apt:
     name: "{{item}}"
     state: present
@@ -14,11 +14,3 @@
     - npm
     - nodejs
     - python-pip
-
-# Blacklist the nouveau driver module
-#- name: Blacklist the nouveau driver module
-#  become: true
-#  kernel_blacklist:
-#    blacklist_file: /etc/modprobe.d/blacklist.conf
-#    name: nouveau
-#    state: present
