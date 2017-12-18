@@ -1,9 +1,22 @@
 ---
+- name: Add chrome signing key
+  become: true
+  apt_key:
+    url: https://dl-ssl.google.com/linux/linux_signing_key.pub
+    state: present
+  register: chrome_signing_key
+
+- name: Add chrome repository
+  become: true
+  shell: "echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list"
+  when: chrome_signing_key.changed
+
 - name: install packages
   become: True
   apt:
     name: "{{item}}"
     state: present
+    update_cache: yes
   with_items:
     - python3-apt
     - debconf-utils
@@ -14,3 +27,4 @@
     - npm
     - nodejs
     - python-pip
+    - google-chrome-stable
