@@ -106,3 +106,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# LS color
+LS_COLORS=$LS_COLORS:'di=0;94:ln=0;95' ; export LS_COLORS
