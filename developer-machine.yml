@@ -1,14 +1,8 @@
 ---
 - hosts: localhost
-  become: true
   tags: docker
   roles:
     - role: common-dev-setup
     - role: docker
       # The local user name is available in this variable
       docker_user: "{{ansible_user_id}}"
-
-- hosts: localhost
-  become: false
-  roles:
-    - common-dev-setup

@@ -11,6 +11,7 @@
     enabled: true
 
 - name: Add the running user to the docker group
+  become: true
   user:
     name: "{{ docker_user }}"
     groups: ["docker"]

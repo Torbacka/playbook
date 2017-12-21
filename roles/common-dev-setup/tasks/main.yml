@@ -1,4 +1,10 @@
 ---
-- include: manage_packages.yml
-- include: install-oracle-java.yml
-- include: docker_compose.yml
+- name: get the username running the deploy
+  local_action: command whoami
+  register: username_on_the_host
+  changed_when: false
+
+- import_tasks: manage_packages.yml
+- import_tasks: install-oracle-java.yml
+- import_tasks: setup_bash.yml
+- import_tasks: install-spotify.yml

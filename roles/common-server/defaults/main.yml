@@ -1,3 +1,10 @@
 ---
 # defaults file for timezone
 local_timezone: "Europe/Stockholm"
+basic_tools:
+      - bash-completion
+      - htop
+      - vim
+      - nano
+      - python-pip
+      - ssmtp

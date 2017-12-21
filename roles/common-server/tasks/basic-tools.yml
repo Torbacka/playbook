@@ -3,8 +3,4 @@
     name: "{{ item }}"
     state: installed
   with_items:
-    - bash-completion
-    - htop
-    - vim
-    - nano
-    - python-pip
+    - "{{ basic_tools }}"
