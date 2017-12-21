@@ -9,3 +9,10 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 alias docker-remove='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")'
+
+function stopvpn() {
+        expressvpn disconnect
+        echo "nameserver 8.8.8.8 8.8.4.4" | sudo tee -a /etc/resolv.conf
+}
+alias vpn='expressvpn connect smart'
+alias erroronstart='grep "fatal" /var/log/boot.log'
