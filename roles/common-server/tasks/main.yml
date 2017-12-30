@@ -1,4 +1,4 @@
 ---
-- include: timezone.yml
-- include: basic-tools.yml
-- include: basic-config.yml
+- import_tasks: timezone.yml
+- import_tasks: basic-tools.yml
+- import_tasks: basic-config.yml

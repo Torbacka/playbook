@@ -1,9 +1,9 @@
 ---
-- include: install_docker_repository.yml
+- import_tasks: install_docker_repository.yml
 
-- include: install_and_enable_docker.yml
+- import_tasks: install_and_enable_docker.yml
 
-- include: install_docker_compose.yml
+- import_tasks: install_docker_compose.yml
 
-- include: registry.yml
+- import_tasks: registry.yml
   when: inventory_hostname != "localhost"

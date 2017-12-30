@@ -10,7 +10,7 @@ alias la='ls -A'
 alias l='ls -CF'
 alias docker-remove='docker rmi -f $(docker images | grep "^<none>" | awk "{print $3}")'
 
-function stopvpn() {
+stopvpn () {
         expressvpn disconnect
         echo "nameserver 8.8.8.8 8.8.4.4" | sudo tee -a /etc/resolv.conf
 }

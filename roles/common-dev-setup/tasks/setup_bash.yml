@@ -2,14 +2,14 @@
 - name: Configure bash
   copy:
     src: "{{ item }}"
-    dest: "/home/{{ username_on_the_host.stdout }}/"
-    owner: "{{ username_on_the_host.stdout }}"
+    dest: "/home/{{ username_on_the_host }}/"
+    owner: "{{ username_on_the_host }}"
   register: bash_configure
   with_fileglob:
     - ".*"
 
 - name: Source bash files
-  shell: ". /home/{{ username_on_the_host.stdout }}/{{ item | basename }}"
+  shell: ". /home/{{ username_on_the_host }}/{{ item | basename }}"
   when: bash_configure.changed
   with_fileglob:
     - ".*"
